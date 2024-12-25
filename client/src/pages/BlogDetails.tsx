@@ -63,15 +63,6 @@ const BlogDetails: React.FC = () => {
           <div
             className="rounded-lg border-l-4 border-primary bg-gray-100 p-4 text-gray-800"
             dangerouslySetInnerHTML={{
-              __html: blog.content.slice(0, 200),
-            }}
-          />
-          <h3 className="mt-10 mb-6 text-3xl font-bold text-primary font-raleway">
-            Full Article
-          </h3>
-          <div
-            className="text-gray-800 leading-relaxed"
-            dangerouslySetInnerHTML={{
               __html: blog.content,
             }}
           />

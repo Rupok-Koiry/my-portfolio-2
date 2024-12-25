@@ -87,7 +87,7 @@ export const courses = [
 // Education details
 export const education = [
   {
-    title: "Bachelor of Science in Zoology",
+    title: "Bachelor of Science in Physics",
     img: duLogo,
     provider: "Dhaka University",
     duration: "2024-present",

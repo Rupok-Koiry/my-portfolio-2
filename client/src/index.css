@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+/* Importing Tailwind CSS base, components, and utilities */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Defining CSS variables for light and dark themes */
+:root {
+  --color-bg-default: rgb(249, 250, 251);
+  --color-text-default: rgb(33, 36, 40);
+  --color-text-secondary: #17191c;
+  --color-primary: rgb(55, 140, 231);
+  --color-secondary: #c4cfde;
+  --shadow-default: rgba(99, 99, 99, 0.2) 0px 3px 8px 2px;
+  --bg-gradient: linear-gradient(
+    to right bottom,
+    rgb(249, 250, 251),
+    rgb(237, 238, 239)
+  );
+  --color-primary-gradient: linear-gradient(
+    to right,
+    rgb(55, 140, 231),
+    rgb(0, 105, 200)
+  );
+}
+
+.dark:root {
+  --color-bg-default: rgb(33, 36, 40);
+  --color-text-default: rgb(249, 250, 251);
+  --color-text-secondary: #c4cfde;
+  --color-secondary: #17191c;
+  --shadow-default: rgba(0, 0, 0, 0.4) 0px 3px 8px 2px;
+  --bg-gradient: linear-gradient(
+    to right bottom,
+    rgb(33, 36, 40),
+    rgb(22, 24, 28)
+  );
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+  background-color: var(--color-secondary);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: var(--color-secondary);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-image: var(--color-primary-gradient);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Body styles */
+body {
+  background-color: var(--color-bg-default);
+  color: var(--color-text-default);
+  font-family: "Poppins", sans-serif;
+}
+.font-raleway {
+  font-family: "Raleway", sans-serif;
+}
+.font-pacifico {
+  font-family: "Pacifico", cursive;
+}
+/* List item marker color */
+li::marker {
+  color: var(--color-primary);
+}
+
+/* Input styles */
+input,
+textarea {
+  font: inherit;
+}
+/* Gradient transition effect */
+.gradient-transition {
+  position: relative;
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+.gradient-transition::before {
+  position: absolute;
+  content: "";
+  inset: 0;
+  background-image: var(--bg-gradient);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  border-radius: inherit;
+}
+.gradient-transition:hover::before {
+  opacity: 1;
+}
+.gradient-transition:hover {
+  transform: translateY(-4px);
+}
+
+/* Navbar styles */
+.navbar {
+  backdrop-filter: blur(12px);
+  background-color: rgba(249, 250, 251, 0.6);
+}
+.dark .navbar {
+  background-color: rgba(33, 36, 40, 0.8);
+}
+
+/* Navbar link underline animation */
+.navbar .animation-link {
+  position: relative;
+  padding-bottom: 3px;
+  will-change: transform;
+}
+.navbar .animation-link:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: "";
+  background: var(--color-primary);
+  height: 1px;
+  transition: all 0.3s ease;
+}
+.navbar .animation-link:hover:after {
+  width: 100%;
+}
+.animation-link.active:after {
+  width: 100%;
+}
+/* Image shadow effect */
+.img-shadow {
+  filter: drop-shadow(3px 3px 8px rgb(33, 36, 40));
+}
+.dark .img-shadow {
+  filter: drop-shadow(3px 3px 8px rgb(249, 250, 251));
+}

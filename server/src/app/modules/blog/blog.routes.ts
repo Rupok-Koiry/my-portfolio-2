@@ -10,14 +10,11 @@ import {
 
 const router = express.Router();
 
-router
-  .route('/')
-  .get(auth('admin'), getAllBlogs)
-  .post(auth('admin'), createBlog);
+router.route('/').get(getAllBlogs).post(auth('admin'), createBlog);
 
 router
   .route('/:id')
-  .get(auth('admin'), getBlog)
+  .get(getBlog)
   .patch(auth('admin'), updateBlog)
   .delete(auth('admin'), deleteBlog);
 

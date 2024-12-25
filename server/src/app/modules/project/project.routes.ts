@@ -10,14 +10,11 @@ import {
 
 const router = express.Router();
 
-router
-  .route('/')
-  .get(auth('admin'), getAllProjects)
-  .post(auth('admin'), createProject);
+router.route('/').get(getAllProjects).post(auth('admin'), createProject);
 
 router
   .route('/:id')
-  .get(auth('admin'), getProject)
+  .get(getProject)
   .patch(auth('admin'), updateProject)
   .delete(auth('admin'), deleteProject);
 

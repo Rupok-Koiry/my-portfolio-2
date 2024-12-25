@@ -10,14 +10,11 @@ import {
 
 const router = express.Router();
 
-router
-  .route('/')
-  .get(auth('admin'), getAllSkills)
-  .post(auth('admin'), createSkill);
+router.route('/').get(getAllSkills).post(auth('admin'), createSkill);
 
 router
   .route('/:id')
-  .get(auth('admin'), getSkill)
+  .get(getSkill)
   .patch(auth('admin'), updateSkill)
   .delete(auth('admin'), deleteSkill);
 

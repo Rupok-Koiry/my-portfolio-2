@@ -10,14 +10,11 @@ import {
 
 const router = express.Router();
 
-router
-  .route('/')
-  .get(auth('admin'), getAllExperiences)
-  .post(auth('admin'), createExperience);
+router.route('/').get(getAllExperiences).post(auth('admin'), createExperience);
 
 router
   .route('/:id')
-  .get(auth('admin'), getExperience)
+  .get(getExperience)
   .patch(auth('admin'), updateExperience)
   .delete(auth('admin'), deleteExperience);
 
